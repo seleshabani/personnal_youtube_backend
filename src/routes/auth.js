@@ -21,7 +21,7 @@ authRouteur.post('/subscribe',async (req,res)=>{
     if(verifuser) return res.status(403).json(false);
    // const ashedpasword = await cryptPassword(password);
     const user = await User.create({email:email,googleId:googleId});
-    const token = jwt.sign({email}, privateKey, {algorithm: "RS256"});
+    const token = jwt.sign({"email":email}, privateKey, {algorithm: "RS256"});
 
     if (user) {
         res.status(201);
@@ -40,7 +40,7 @@ authRouteur.post('/login',async (req,res)=>{
     //let isSamePassword = await comparePassword(password,user.password);
 
    // if(isSamePassword){
-    const token = jwt.sign({email}, privateKey, {algorithm: "RS256"})
+    const token = jwt.sign({"email":email}, privateKey, {algorithm: "RS256"})
     res.status(200);
     return res.json(token)
    // }
