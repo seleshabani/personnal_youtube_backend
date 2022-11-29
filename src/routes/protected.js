@@ -15,8 +15,8 @@ protectedRouter.post('/comment',async (req,res)=>{
 })
 
 protectedRouter.get('/comment/:videoId',async (req,res)=>{
-    const {videoId} = req.params
-    const comments = await Comment.find({videoId:videoId,parentId:null}).exec();
+   const {videoId} = req.params
+   const comments = await Comment.find({videoId:videoId,parentId:null}).exec();
    res.status(200)
    return res.json(comments)
 })
