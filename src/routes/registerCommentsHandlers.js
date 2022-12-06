@@ -8,12 +8,12 @@ module.exports = (io, socket) => {
      // const userToken = req.userToken;
       const user = await User.findOne({email:userMail}).exec();
       const comment = await Comment.create({content:contenue,videoId:videoId,author:user._id});
-      const comments = await Comment.find({videoId:videoId,parentId:null}).exec();
+      const comments = await Comment.find({videoId:videoId,parentId:null}).populate('author').exec();
       io.emit('comment:get',JSON.stringify(comments))
     }
   
     const readComment = async (videoId) => {
-      const comments = await Comment.find({videoId:videoId,parentId:null}).exec();
+      const comments = await Comment.find({videoId:videoId,parentId:null}).populate('author').exec();
       io.emit('comment:get',JSON.stringify(comments))
     }
   

@@ -38,7 +38,6 @@ const run = async ()=>{
     const socketOnConnection = (socket) => {
         registerCommentsHandlers(io, socket);
         //registerUserHandlers(io, socket);
-       // io.emit('connec')
     }
     io.on('connection',socketOnConnection);
 }

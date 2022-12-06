@@ -14,7 +14,6 @@ const publicKey = process.env.PUBLIC_KEY
 authRouteur.post('/subscribe',async (req,res)=>{
     let email = req.body.email;
     let googleId = req.body.googleId;
-    console.log(req.body);
     //return res.send('ok')
   //  let password = req.body.password;
     let verifuser = await User.findOne({email:email}).exec();

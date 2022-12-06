@@ -14,7 +14,7 @@ const isUserLogedIn = (req,res,next)=>{
             return res.status(401).send("L'utilisateur n'est pas autorisé")
         }
         req.userToken = decoded
-        console.log(decoded);
+        //console.log(decoded);
         next();
     })
 }

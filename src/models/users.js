@@ -8,15 +8,18 @@ const userSchema = mongoose.Schema({
         type:String
     },
     name:{
-        type:String
+        type:String,
+        required:false
     },
     password:{
         type:String,
+        required:false
     },
     picture:{
-        type:String
+        type:String,
+        required:false
     },
-    notifications:[mongoose.Schema.Types.ObjectId]
+    notifications:[{type:mongoose.Schema.Types.ObjectId}]
 })
 const User = mongoose.model('User',userSchema);
 module.exports = {User,userSchema}
